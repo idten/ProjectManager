@@ -47,6 +47,7 @@ public class TestController {
     @RequestMapping(value = "/projectRegister", method = RequestMethod.GET)
     public ModelAndView projectRegister(ModelAndView mav, HttpServletRequest request)  {
         mav.setViewName("html/projectRegister");
+
         logger.info("ProjectRegister  End");
         return mav;
     }

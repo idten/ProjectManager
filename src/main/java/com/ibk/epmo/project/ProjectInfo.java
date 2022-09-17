@@ -95,6 +95,9 @@ public class ProjectInfo {
 
 //    //
     private String step;
+
+    private String munsu;
+    
     //    //도입 물품
 //    @Field(type = FieldType.Keyword)
 //    private String items;
