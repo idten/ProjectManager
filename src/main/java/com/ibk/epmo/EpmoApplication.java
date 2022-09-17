@@ -16,6 +16,10 @@ import com.ibk.epmo.question.QuestionInfo;
 import com.ibk.epmo.question.QuestionInfoRepository;
 import com.ibk.epmo.step.StepInfo;
 import com.ibk.epmo.step.StepInfoRepository;
+import kr.dogfoot.hwplib.object.HWPFile;
+import kr.dogfoot.hwplib.reader.HWPReader;
+import kr.dogfoot.hwplib.tool.textextractor.TextExtractMethod;
+import kr.dogfoot.hwplib.tool.textextractor.TextExtractor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,6 +138,16 @@ public class EpmoApplication extends SpringBootServletInitializer {
             //사전협의 A001
             stepInfo1.setStep("A001");
             stepInfo1.setTitle("판로지원법 여부 확인");
+
+
+            HWPFile hwpFile ;
+            String hwpText;
+         //   hwpFile = HWPReader.fromFile("C:\\1.hwp");
+            hwpFile = HWPReader.fromFile("C:\\1.hwp");
+
+            hwpText = TextExtractor.extract(hwpFile, TextExtractMethod.InsertControlTextBetweenParagraphText);
+            System.out.println("한글추출:"+hwpText);
+
             stepInfo1.setGuideContents("법:중소기업제품 구매촉진 및 판로지원에 관한 법률(판로지원법) <br />"
                  +   "- 공공구매사이트 접속하여 해당내역 조회 중기간 경쟁제품 여부 조회 (https://www.smpp.go.kr/prd/prdinfo/smlpzbtwncmptprd/SelectSmlpzBtwnCmptprdListVw.do)");
             //법률내규 G001
